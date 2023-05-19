@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login to FireWing</title>
+    <link rel="stylesheet" href="../css/login.css">
+</head>
+<body>
+    <div class="box">
+        <div class="form">
+        <form>
+            <h2>LogIn</h2>
+            <div class="inputBox">
+                <input type="text" class="username">
+                <span>Email Address</span>
+                <i></i>
+            </div>
+                <p class="username_err"></p>
+            <div class="inputBox">
+                <input type="password" class="password">
+                <span>Password</span>
+                <i></i>
+            </div>
+                <p class="password_err"></p>
+            <div class="links">
+                <a href="#">Forgot Password?</a>
+                <a href="sighnup.html">Signup</a>
+            </div>
+            <input type="submit" value="Login">
+        </form>
+        <button class="home-btn">Home</button>
+    </div>
+</div>
+<script src="../js/login.js"></script>    
+</body>
+</html>
+<script>
+const form =document.forms[0]
+const username_err=document.querySelector('.username_err')
+const password_err=document.querySelector('.password_err')
+ const signed = document.querySelector('.after_sighn')
+function submitForm(){
+    username_err.innerHTML=''
+    password_err.innerHTML=''
+let pertern =  /^[^ ]+@[^ ]+\.[a-z]{2,3}$/;
+
+    const username=document.querySelector('.username')
+    const password=document.querySelector('.password')
+    if(username.value.length===0){
+        username_err.innerHTML='Email Cant Be Blank'
+        username_err.style.color='red'
+        
+    }else if(!username.value.match(pertern)){
+        username_err.innerHTML = 'Enter a valid email'
+        username_err.style.color='red' 
+    }
+    else if(password.value.length===0){
+        password_err.innerHTML='Password Cant Be Blank '
+        password_err.style.color='red'
+    }else if(password.value.length < 8){
+        password_err.innerHTML='Password should be more than 8 charecters'
+        password_err.style.color='red'
+    }else{
+        password.style.border='none'
+        username.style.border='none'
+        password.value=0
+         window.localStorage.setItem("userLoggedIn", "true")
+        window.location='home.html'
+    }
+}
+
+form.addEventListener('submit',(event) =>{
+    event.preventDefault()
+    submitForm()
+})  
+const home = document.querySelector('.home-btn')
+
+home.addEventListener('click',()=>{
+    window.location='home.html'
+})
+
+</script>
+<style>
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: sans-serif;
+}
+body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: url(/images/bg\ \(2\).jpeg) no-repeat;
+    background-size: cover;
+}
+
+.box{
+    position: relative;
+    width: 380px;
+    height: 480px;
+    background-color: #1c1c1c;
+    border-radius: 8px;
+    overflow: hidden;
+}
+.box::before{
+    content: "";
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 380px;
+    height: 420px;
+    background: linear-gradient(0deg, transparent ,#ff0000, #fffb00);
+    transform-origin: bottom right;
+    animation: animate 6s linear infinite;
+}
+.box::after{
+    content: "";
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 380px;
+    height: 420px;
+    background: linear-gradient(0deg, transparent ,#fff700, #ff0000);
+    transform-origin: bottom right;
+    animation: animate 6s linear infinite;
+    animation-delay: -3s;
+}
+@keyframes animate {
+    0%{
+        transform: rotate(0deg);
+    }
+    100%{
+        transform: rotate(360deg);
+    }
+}
+
+.form{
+    position:absolute;
+    inset: 2px;
+    border-radius: 8px;
+    background: #28292d;
+    padding: 50px 40px;
+    display: flex;
+    flex-direction: column;
+    z-index: 10;
+}
+
+.form h2{
+    color: #ff4545;
+    font-weight: 500;
+    text-align: center;
+    letter-spacing: 0.1em;
+    animation:colorRotate 5s infinite;
+}
+
+.inputBox{
+    position: relative;
+    width: 300px;
+    margin-top: 35px;
+}
+.inputBox input{
+    width: 100%;
+    padding: 20px 10px 10px;
+    background: transparent;
+    border: none;
+    outline: none;
+    color: #ffffff;
+    font-size: 1em;
+    letter-spacing: 0.05em;
+   z-index: 10;
+}
+.inputBox span{
+    position: absolute;
+    left: 0;
+    padding: 20px 10px 10px;
+    font-size: 1em;
+    color: #8f8f8f;
+    pointer-events: none;
+    letter-spacing: 0.05em;
+    transition: 0.5s;
+}
+
+.inputBox input:valid ~ span,
+.inputBox input:focus ~ span{
+    color: #27ffff;
+    transform: translateX(0px) translateY(-34px);
+    font-size: 0.75em;
+}
+@keyframes colorRotate {
+    from {
+      color: red;
+    }
+    10% {
+      color: orange;
+    }20%{
+       color:yellow;
+    }30%{
+    color:cyan;
+    }40%{
+    color:rgb(0, 217, 255)
+    }50% {
+      color: blue;
+    }60%{
+    color:pink;
+    }70% {
+      color:violet ;
+    }80%{
+    color:purple;
+    } 90%{
+    color:darkmagenta;
+    }100% {
+      color: red;
+    }
+  }
+.inputBox i{
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 2px;
+    background-color: #45f3ff6e;
+    border-radius: 4px;
+    transition: 0.5s;
+    pointer-events: none;
+    z-index: 9;
+}
+
+.inputBox input:valid ~ i,
+.inputBox input:focus ~ i{
+    height: 44px;
+}
+
+.links{
+    display: flex;
+    justify-content: space-between;
+}
+
+.links a{
+    margin: 10px 0px;
+    font-size: 0.75em;
+    color: #8f8f8f;
+    text-decoration: none;
+}
+
+.links a:hover,
+.links a:nth-child(2){
+    color: #45f3ff;
+}
+
+input[type="submit"]{
+    border: none;
+    outline: none;
+    background: #45f3ff;
+    padding: 11px 25px;
+    width: 100px;
+    border-radius: 4px;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+input[type="submit"]:active{
+    opacity: 0.08;
+}
+
+.home-btn{
+    border: none;
+    outline: none;
+    margin-top: 2em;
+    background:linear-gradient(red , yellow);
+    padding: 11px 25px;
+    width: 100px;
+    border-radius: 4px;
+    font-weight: 600;
+    cursor: pointer;    
+}
+</style>
