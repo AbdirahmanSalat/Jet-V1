@@ -1,4 +1,3 @@
-
 const body = document.querySelector("body"),
       nav = document.querySelector("nav"),
       modeToggle = document.querySelector(".dark-light"),
@@ -43,7 +42,7 @@ body.addEventListener("click" , e =>{
 const btns = document.querySelectorAll('.btn')
 const login_btn = btns[0]
 const signup_btn = btns[1]
-const log_out_btn = btns[1]
+const log_out_btn = btns[2]
 
 login_btn.addEventListener('click',()=>{
     window.location = 'login.html'
@@ -61,20 +60,25 @@ if(userLoggedIn === "true"){
     log_out_btn.style.display = "none"
      signup_btn.style.display="block"
      login_btn.style.display="block"
-
- }
+}
 log_out_btn.addEventListener('click',()=>{
      window.localStorage.setItem('userLoggedIn',"false")
      log_out_btn.style.display="none"
      login_btn.style.display='block'
      signup_btn.style.display='block'
+    window.location="welcome.html"
   })
-  const loader = document.querySelector(".loader");
-  window.onload = function(){
-    setTimeout(function(){
-      loader.style.opacity = "0";
-      setTimeout(function(){
-        loader.style.display = "none";
-      }, 500);
-    },1500);
-  }
+
+
+var myVar;
+
+function myFunction() {
+  myVar = setTimeout(showPage, 3000);
+}
+
+function showPage() {
+  document.getElementById("loader").style.display = "none";
+  document.getElementById("myDiv").style.display = "block";
+}
+
+console.log(userLoggedIn);

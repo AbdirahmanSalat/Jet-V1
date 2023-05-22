@@ -27,7 +27,9 @@ body.loading{
 }
 body{
     height: 100vh;
-    background-color: var(--body-color);
+  background: url(../images&icons/bgL.jpeg)no-repeat;
+  background-size: cover;
+  background-color: var(--body-color);
 }
 
 body.dark{
@@ -36,7 +38,8 @@ body.dark{
     --side-nav: #242526;
     --text-color: gold;
     --search-bar: #242526;
-    --seconday:cyan;
+    --seconday:rgb(255, 255, 255);
+  background: url(../images&icons/bgD.jpeg);
 }
 
 nav{
@@ -93,6 +96,8 @@ body.dark nav{
 .logout:hover{
     color: red;
 }
+.main{
+}
 .login:hover{
     background-color: #ffffff;
     color: #000000;    
@@ -121,7 +126,7 @@ nav .nav-bar .sidebarOpen{
     display: flex;
     flex-direction: column;
     position: relative;
-    top: 100px;
+    /* top: 100px; */
     justify-content: center;
     align-items: center;
     height: 60vh;
@@ -137,6 +142,7 @@ nav .nav-bar .logo a{
 .menu .logo-toggle{
     display: none;
 }
+
 
 .nav-bar .nav-links{
     display: flex;
@@ -156,7 +162,14 @@ nav .nav-bar .logo a{
     text-decoration: none;
     padding: 10px;
 }
-
+body{
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--body-color);
+}
 .nav-links li a::before{
     content: '';
     position: absolute;
@@ -235,6 +248,36 @@ opacity: 1;
     position: relative;
 }
 
+
+  #container {
+    position: relative;
+    top: 200px;
+    width: 200px;
+    height: 200px;
+  }
+  
+  @keyframes animation {
+    0% {
+      stroke-dasharray: 1 98;
+      stroke-dashoffset: -105;
+    }
+    50% {
+      stroke-dasharray: 80 10;
+      stroke-dashoffset: -160;
+    }
+    100% {
+      stroke-dasharray: 1 98;
+      stroke-dashoffset: -300;
+    }
+  }
+  
+  #spinner {
+    transform-origin: center;
+    animation-name: animation;
+    animation-duration: 1.2s;
+    animation-timing-function: cubic-bezier;
+    animation-iteration-count: infinite;
+  }
 .searchBox .search-field{
     position: absolute;
     bottom: -85px;
@@ -408,4 +451,89 @@ body.dark .search-field i{
 .content .text p{
   padding: 10px 0;
   text-align: justify;
+}
+
+
+
+
+.ring
+{
+  position:absolute;
+  top:50%;
+  left:50%;
+  transform:translate(-50%,-50%);
+  width:150px;
+  height:150px;
+  background:transparent;
+  border:3px solid #3c3c3c;
+  border-radius:50%;
+  text-align:center;
+  line-height:150px;
+  font-family:sans-serif;
+  font-size:20px;
+  color:#fff000;
+  letter-spacing:4px;
+  text-transform:uppercase;
+  text-shadow:0 0 10px #fff000;
+  box-shadow:0 0 20px rgba(0,0,0,.5);
+}
+.ring:before
+{
+  content:'';
+  position:absolute;
+  top:-3px;
+  left:-3px;
+  width:100%;
+  height:100%;
+  border:3px solid transparent;
+  border-top:3px solid #fff000;
+  border-right:3px solid #fff000;
+  border-radius:50%;
+  animation:animateC 2s linear infinite;
+}
+.span
+{
+  display:block;
+  position:absolute;
+  top:calc(50% - 2px);
+  left:50%;
+  width:50%;
+  height:4px;
+  background:transparent;
+  transform-origin:left;
+  animation:animate 2s linear infinite;
+}
+span:before
+{
+  content:'';
+  position:absolute;
+  width:16px;
+  height:16px;
+  border-radius:50%;
+  background:#fff000;
+  top:-6px;
+  right:-8px;
+  box-shadow:0 0 20px #fff000;
+}
+@keyframes animateC
+{
+  0%
+  {
+    transform:rotate(0deg);
+  }
+  100%
+  {
+    transform:rotate(360deg);
+  }
+}
+@keyframes animate
+{
+  0%
+  {
+    transform:rotate(45deg);
+  }
+  100%
+  {
+    transform:rotate(405deg);
+  }
 }
