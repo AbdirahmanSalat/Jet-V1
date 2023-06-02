@@ -503,18 +503,7 @@ body.dark .search-field i{
   transform-origin:left;
   animation:animate 2s linear infinite;
 }
-.span:before
-{
-  content:'';
-  position:absolute;
-  width:16px;
-  height:16px;
-  border-radius:50%;
-  background:#fff000;
-  top:-6px;
-  right:-8px;
-  box-shadow:0 0 20px #fff000;
-}
+
 @keyframes animateC
 {
   0%
