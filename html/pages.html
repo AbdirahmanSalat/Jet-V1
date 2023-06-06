@@ -4,14 +4,88 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://kit.fontawesome.com/62d30ca598.js" crossorigin="anonymous"></script>
+
     <title>Our Pages | Jet</title>
 </head>
 <body>
 <div class="container">
-<div class="pages"> </div>
+    <header>
+        <h1>Welcome To Jet Pages</h1>
+    </header>
+    <div class="content">
+        <p>There are alot of pages for you to explore so lets get started <i class="fa-solid fa-up-right-from-square"></i></p>
+    </div>
+<div class="pages">
+    <div class="page">
+        <h1>1. JetPaint</h1>
+        <a href="../Jet Paint/J html/welcome.html" target="_blank">Open Website <i class="fa-solid fa-up-right-from-square"></i></a>
+    </div>
+    <div class="page">
+        <h1>2. JetWorkspace</h1>
+        <a href="../Jet Workspace/html/home.html" target="_blank">Open Website <i class="fa-solid fa-up-right-from-square"></i></a>
+    </div>
+
+    <div class="page">
+        <h1>1. JetChat</h1>
+        <a href="../Jet Chat/J html/welcome.html" target="_blank">Open Website <i class="fa-solid fa-up-right-from-square"></i></a>
+    </div>    
+</div>
 </div>   
 </body>
 </html>
 <style>
-
+*{
+    margin: 0;
+    padding: 0;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+body{
+    background-color:cornflowerblue;
+    color: white;
+    font-size: large;
+}
+.container{
+    display: flex;
+    flex-direction: column;
+    padding: 1em;
+    align-items: center;
+    background-color: rgb(255, 0, 0);
+    height: 100vh;
+    border-top-right-radius: 20%;
+    border-bottom-left-radius: 20%;
+}
+.pages{
+    display: flex;
+    flex-direction: column;
+    background-color: white;
+    height:100%;
+    width: 100%;
+    border-radius: 12px;
+    color: black;
+    justify-content: left;
+    gap: 1em;
+}
+.page{
+    display: flex;
+    flex-direction: column;
+    background-color: royalblue;
+    padding:1em;
+    border-radius: 10px;
+    color:darkgrey;
+    gap: .5em;
+}
+.page a{
+    background-color:lightblue;
+    padding: .5em;
+    border-radius: 10px;
+    color:rgb(255, 0, 0);
+    text-decoration: none;
+}
+.page i{
+    color:darkblue;
+    background-color: aliceblue;
+    padding: 5px;
+    border-radius: 10px;
+}
 </style>

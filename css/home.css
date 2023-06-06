@@ -30,6 +30,7 @@ body{
   background: url(../images&icons/bgL.jpeg)no-repeat;
   background-size: cover;
   background-color: var(--body-color);
+  border-left:red;
 }
 
 body.dark{
