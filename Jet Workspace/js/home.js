@@ -1,5 +1,7 @@
 const body = document.querySelector("body"),
       nav = document.querySelector("nav"),
+      modeToggle = document.querySelector(".dark-light"),
+      searchToggle = document.querySelector(".searchToggle"),
       sidebarOpen = document.querySelector(".sidebarOpen"),
       siderbarClose = document.querySelector(".siderbarClose");
 
@@ -9,7 +11,20 @@ const body = document.querySelector("body"),
             body.style.color="white"
           }
 
+      modeToggle.addEventListener("click" , () =>{
+        modeToggle.classList.toggle("active");
+        body.classList.toggle("dark");
 
+        if(!body.classList.contains("dark")){
+            localStorage.setItem("mode" , "light-mode");
+        }else{
+            localStorage.setItem("mode" , "dark-mode");
+        }
+      });
+
+        searchToggle.addEventListener("click" , () =>{
+        searchToggle.classList.toggle("active");
+      });
  
       
 sidebarOpen.addEventListener("click" , () =>{
@@ -54,3 +69,16 @@ log_out_btn.addEventListener('click',()=>{
     window.location="welcome.html"
   })
 
+
+var myVar;
+
+function myFunction() {
+  myVar = setTimeout(showPage, 3000);
+}
+
+function showPage() {
+  document.getElementById("loader").style.display = "none";
+  document.getElementById("myDiv").style.display = "block";
+}
+
+console.log(userLoggedIn);
